@@ -1,0 +1,177 @@
+.bnx-form{
+    padding: $spacer-6 $spacer-0;
+    &__wrapper{
+        display: flex;
+    }
+    &__head{
+        font-size: 28px;
+        color: $color-blue;
+        font-weight: $font-semi-bold;
+    }
+    &__sec-1{
+        width: 70%;
+        padding-right: $spacer-6;
+        border-right: 1px solid #d7d7d7;
+    }
+    &__sec-2{
+        width: 30%;
+        padding-left: $spacer-6;
+        .bnx-form__head{
+            margin-bottom: $spacer-5;
+        }
+    }
+    &__item{
+        width: calc(50% - 26px);
+        margin: $spacer-2 10px;
+        position: relative;
+        &--full-width{
+            width: calc(100% - 32px);
+        }
+        .error{
+            & ~ .bnx-form__error{
+                display: block;
+            }
+        }
+    }
+    &__text-area{
+        width: 100%;
+    }
+    &__icon{
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 18px;
+        right: 10px;
+        transform: translate(0%, -50%);
+    }
+    &__input-radio{
+        display: flex;
+        align-items: center;
+        .bnx-radio{
+            margin-right: $spacer-4;
+            &:last-child{
+                margin-right: $spacer-0;
+            }
+        }
+    }
+    &__error{
+        color: #cc3838;
+        width: 100%;
+        font-size: 14px;
+        margin-top: 2px;
+        display: none;
+    }
+    &__input{
+        border: 1px solid #e2e2e2;
+        color: #6d6d6d;
+        padding: $spacer-2 42px $spacer-2 $spacer-3;
+        border-radius: 0px;
+        width: 100%;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        -moz-appearance: textfield;
+        &::placeholder{
+            color: #6d6d6d;
+        }
+        &--text-area{
+            min-height: 120px;
+        }
+    }
+    &__ph-no{
+        display: flex;
+        flex-wrap: wrap;
+        .bnx-form__input{
+            width: calc(100% - 75px);
+        }
+        .bnx-form__dropdown{
+            border-right: none;
+            width: 75px;
+            min-width: 75px;
+        }
+    }
+    &__dropdown{
+        border: 1px solid #e2e2e2;
+        background-color: transparent;
+        padding: $spacer-2;
+        color: #666666;
+        width: 100%;
+        border: 1px solid #e2e2e2; 
+        appearance: none;
+        position: relative;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='sgp-header__drop-menu-icon' viewBox='0 0 10 5.938'%3E%3Cpath d='M4.75-3.125H4.719A.457.457,0,0,0,5-3.031a.457.457,0,0,0,.281-.094L9.906-7.719A.435.435,0,0,0,10-7.984a.435.435,0,0,0-.094-.266l-.625-.625A.457.457,0,0,0,9-8.969a.338.338,0,0,0-.25.094L5-5.156,1.25-8.875A.338.338,0,0,0,1-8.969a.457.457,0,0,0-.281.094L.094-8.25A.435.435,0,0,0,0-7.984a.373.373,0,0,0,.125.266Z' transform='translate(0 8.969)' fill='%23555'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 10px 5px;
+        background-position-x: calc(100% - 8px);
+        background-position-y: 50%;
+        &+.bnx-form__icon{
+            right: 25px;
+        }
+    }
+    &__inner{
+        display: flex;
+        flex-wrap: wrap;
+        margin: $spacer-0 (-$spacer-3);
+    }
+    &__submit-btn{
+        background-color: $color-blue;
+        color: $color-white;
+        padding: $spacer-2 $spacer-4;
+        min-width: 115px;
+        display: flex;
+        position: relative;
+        transition: all .3s;
+        span{
+            margin-left: 8px;
+        }
+        &:disabled{
+            background-color: #879bad;
+            color: $color-white;
+            pointer-events: none;
+        }
+        
+        &:hover{
+            background-color: $color-blue-1;
+            color: $color-white; 
+        }
+    }
+    &__disc{
+        margin-bottom: $spacer-3;
+        color:  #7f7f7f;
+    }
+}
+@include mobile-tablet{
+    .bnx-form{
+        &__wrapper{
+            flex-wrap: wrap;
+        }
+        &__head{
+            margin-bottom: $spacer-3;
+        }
+        &__sec-1,
+        &__sec-2{
+            width: 100%;
+            padding: 0;
+            border: 0;
+        }
+        &__sec-2{
+            margin-top: $spacer-4;
+            .bnx-form__head{
+                margin-bottom: $spacer-3;
+            }
+        }
+    }
+}
+@include mobile{
+    .bnx-form{
+        padding: $spacer-5 $spacer-0;
+        &__item{
+            width: 100%;
+        }
+        &__head{
+            font-size: 24px;
+        }
+    }
+}

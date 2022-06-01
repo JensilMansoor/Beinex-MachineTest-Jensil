@@ -1,0 +1,172 @@
+.bnx-footer {
+    background-color: $color-blue-4;
+    padding: $spacer-6 $spacer-0;
+    font-size: 14px;
+    color: $color-white-1;
+    &__sec1 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacer-6;
+        li {
+            &:hover {
+                color: $color-blue-1; 
+            }
+        }
+    }
+    &__logo-img {
+        width: 150px;
+        height: auto;
+        margin-bottom: $spacer-4;
+    }
+    &__logo-sec {
+        margin-right: $spacer-3;
+        width: 20%;
+    }
+    &__logo-txt {
+        color: $color-white-1;
+        margin-bottom: $spacer-3;
+    }
+    &__quiklink-sec {
+        display: flex;
+    }
+    &__quiklink-item {
+        margin-right: $spacer-3;
+        &:last-of-type {
+            margin-right: $spacer-0;
+        }
+    }
+    &__quiklink-head {
+        font-weight: $font-semi-bold;
+        font-size: 16px;
+        margin-bottom: $spacer-3;
+        text-transform: uppercase;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background-image: url("data:image/svg+xml,%3Csvg width='13' height='7' viewBox='0 0 13 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 1L6.5 6L1 1' stroke='%23B2B2B2' stroke-width='0.8'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 18px;
+            height: 18px;
+            display: none;
+        }
+    }
+    &__quiklink-links,
+    &__quiklink-head {
+        color: $color-white-1;
+    }
+    &__quiklink-links {
+        margin-bottom: 14px;
+        &:last-of-type {
+            margin-bottom: $spacer-0;
+        }
+    }
+    &__cont-detils {
+        display: flex;
+        align-items: center;
+        color: $color-white-1;
+        margin-bottom: $spacer-3;
+        &:last-of-type {
+        margin-bottom: $spacer-0;
+        }
+        a{
+            display: inline-flex;
+            align-items: center;
+        }
+        span{
+            display: inline-flex;
+            align-items: center;
+            margin-right: $spacer-1;
+        }
+    }
+    &__cont-img {
+        width: 12px;
+        height: auto;
+        margin-right: $spacer-1;
+        display: inline-block;
+        vertical-align: middle;
+        &.bnx-social-icon{
+            width: 24px; 
+        }
+    }
+    &__quiklink-social {
+        .bnx-footer__cont-img {
+            width: 20px;
+            height: auto;
+            margin-right: $spacer-2;
+        }
+    }
+    &__sec2 {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__terms {
+        display: flex;
+        align-items: center;
+        margin: $spacer-0 (-$spacer-3);
+        p {
+            margin-right: $spacer-3;
+        }
+        li {
+            position: relative;
+            padding:  $spacer-0 $spacer-3;
+            &:first-of-type {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 1px;
+                    height: 100%;
+                    background-color: $color-white-1;
+                }
+            }
+        }
+    }
+}
+
+@include mobile-tablet {
+    .bnx-footer {
+        &__logo-sec{
+            width: 100%;
+        }
+        &__sec1 {
+            display: block;
+            margin-bottom: $spacer-4;
+        }  
+        &__quiklink-links,
+        &__cont-detils,
+        .bnx-footer__quiklink-inner .bnx-footer__logo-txt{
+            margin-left: $spacer-3;
+            font-size: 12px;
+        }
+        &__quiklink-inner {
+            max-height: 0;
+            overflow: hidden;
+            &.active {
+                max-height: 100vh;
+                margin-bottom: $spacer-3;
+            }
+        }
+        &__quiklink-item {
+            margin-right: $spacer-0;
+        }
+        &__quiklink-head {
+            &::after {
+                display: block;
+                transition: 0.3s;
+            }
+            &.arrow {
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}

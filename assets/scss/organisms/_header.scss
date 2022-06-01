@@ -1,0 +1,209 @@
+.sticky-soomth {
+    padding-top: 151px;
+    // transition: all .3s;
+}
+.overflow {
+    overflow: hidden;
+}
+
+.bnx-header{
+    padding: $spacer-5 $spacer-0;
+    width: 100%;
+    background-color: $color-white;
+    &__logo{
+        width: 210px;
+        height: auto;
+    }
+    .container-fluid{
+        padding: $spacer-0;
+    }
+    .navbar-brand{
+        padding: $spacer-0;
+        margin: $spacer-0;
+    }
+    .navbar-expand-lg .navbar-collapse{
+        justify-content: end;
+    }
+    &__nav-link{
+        color: $color-black;
+        font-size: 12px;
+        font-weight: $font-bold;
+        transition: all .3s;
+        position: relative;
+        text-transform: uppercase;
+        &:hover{
+            color: $color-blue;
+        }
+        &::after{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            content: "";
+            width: 0;
+            height: 2px;
+            background-color: $color-blue;
+            transition: all .3s;
+            transform: translate(-50%, 0%);
+        }
+        &.active{
+            color: $color-blue;
+        } 
+        &:hover::after{
+            width: 50%;
+        }
+    }
+    &__nav-item{
+        margin: $spacer-0 12px;
+        &:last-child{
+            margin-right: $spacer-0;
+        }
+    }
+    &.sticky {
+        position: fixed;
+        padding: 0;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: $color-white;
+        animation: slide-down .3s linear forwards;
+        &:after {
+            content: none;
+        }
+        .navbar-toggler {
+            margin: $spacer-0;
+        }
+        .bnx-header__navbar {
+            padding: 16px 0px;
+        }
+        .bnx-header__logo{
+            width: 160px;
+        }
+    }
+    .sticky {
+        transform: translateY(-200px);
+        transition: all .3s;
+    }
+    .navbar-toggler {
+        padding: $spacer-0;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    &__fade {
+        display: none;
+    }
+    &__close {
+        display: none;
+    }
+    &__navbar{
+        padding: $spacer-0;
+        .navbar-nav{
+            align-items: center;
+        }
+    }  
+    &__button{
+        margin-left: 80px;
+    }
+    &__button-link{
+        padding: 12px $spacer-4;
+        border: 1px solid $color-black;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: $font-regular;
+        transition: all .3s;
+        &:hover{
+            background-color: $color-blue;
+            color: $color-white;
+        }
+    }  
+}
+@media (max-width: 1200px) {
+    .bnx-header{
+        &__button{
+            margin-left: $spacer-3;
+        }
+        &__logo{
+            width: 150px;
+        }
+    }
+}
+@include mobile-tablet {
+    .bnx-header{
+        &__fade {
+            display: block;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: all .3s;
+        }
+        &__logo{
+            width: 150px;
+        }
+        &__nav-item{
+            margin: 12px $spacer-0;
+        }
+        &__navbar{
+            padding: $spacer-2 $spacer-0;
+            .navbar-collapse {
+                .navbar-nav {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    background-color: $color-white;
+                    width: 50%;
+                    min-width: 280px;
+                    padding: $spacer-3;
+                    height: 100vh;
+                    margin-left: 0;
+                    transform: translateX(-280px);
+                    // transform: translateX(280px);
+                    transition: all .3s;
+                    opacity: 0;
+                    align-items: flex-start;
+                }
+                .bnx-header__close {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    // left: 95%;
+                    right: 16px;
+                    margin-top: $spacer-3;
+                    transform: translateX(-350px);
+                    opacity: 1;
+                    transition: all .5s;
+                }
+                &.show {
+                    .navbar-nav {
+                        transform: translateX(0px);
+                        opacity: 1;
+                    }
+                    .bnx-header__close {
+                        transform: translateX(0px);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        &__button{
+            margin: $spacer-3 $spacer-0 $spacer-0 $spacer-0;
+        }
+    }
+}
+@include mobile {
+    .bnx-header{
+        padding: $spacer-3 $spacer-0;
+    }
+}
+@keyframes slide-down {
+    0% {
+        opacity: .5;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

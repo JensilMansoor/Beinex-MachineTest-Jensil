@@ -1,0 +1,37 @@
+.bnx-radio {
+    padding-left: 24px;
+    position: relative;
+    cursor: pointer;
+    color: #6d6d6d;
+    input {
+        display: none;
+        &:checked {
+            &~.bnx-radio__checkmark {
+                border: 2px solid #2b98f7;
+                &::after {
+                    background-color: #2b98f7;
+                }
+            }
+        }
+    }
+    &__checkmark {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 15px;
+        height: 15px;
+        border: 2px solid #2b98f7;
+        border-radius: 50%;
+        &::after {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background-color: transparent;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            border-radius: 50%;
+            transition: all 0.4s;
+        }
+    }
+}

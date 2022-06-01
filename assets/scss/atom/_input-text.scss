@@ -1,0 +1,10 @@
+.al-input-txt {
+    border: 0;
+    border-bottom: 2px solid $color-grey;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 0;
+    &::placeholder {
+        color: $color-grey;
+    }
+}

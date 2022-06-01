@@ -1,0 +1,172 @@
+.bnx-news{
+    background-color: $color-grey-3;
+    padding: 40px 0;
+    &__slider{
+        margin: 0 -5px;
+        &>.slick-list{
+            padding-bottom: $spacer-5;
+        }
+    }
+    &__item{
+        display: flex;
+        margin: 0px 5px;
+        &.slick-slide{
+            display: flex;
+        } 
+    }
+    &__sec-1{
+        margin-right: 10px;
+    }
+    &__sec-1,
+    &__sec-2,
+    &__img-sec,
+    &__content{
+        width: 100%;
+    }
+    &__tile{
+        display: flex;
+        margin-bottom: 10px;
+        min-height: calc(50% - 5px);
+        background-color: $color-white;
+        transition: all .3s;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        &--vertical{
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            height: 100%;
+        }
+        &:hover{
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+    }
+    &__img-sec{
+        position: relative;
+    }
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__content{
+        padding: 30px;
+    }
+    &__tile-btn{
+        width: 50px;
+        height: 50px;
+        background-color: $color-cyan;
+        background-image: url(../images/arrow-right-blue.png);
+        background-size: 25px 7px;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    &__date{
+        font-size: 14px;
+        color: $color-grey-2;
+        margin-bottom: 16px;
+    }
+    &__head{
+        @include Etica-semi-bold;
+        color: $color-black-2;
+        margin-bottom: 16px;
+    }
+    &__disc{
+        color: $color-grey-4;
+    }
+    &__controls{
+        display: flex;
+        align-items: center;
+        margin: 0px 5px;
+        .al-btn{
+            white-space: nowrap;
+        }
+    }
+    &__pagenation{
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    &__slide-detail{
+        display: flex;
+        align-items: center;
+        width: 87%;
+        margin-right: 24px;
+    }
+    &__progress{
+        display: block;
+        width: 100%;
+        height: 2px;
+        overflow: hidden;
+        background-color: $color-grey-5;
+        background-image: linear-gradient(to right, $color-blue, $color-blue);
+        background-repeat: no-repeat;
+        background-size: 0 100%;
+        transition: background-size .4s ease-in-out;
+        margin-left: 24px;
+    }
+}
+
+@include mobile-tablet{ 
+    .bnx-news{
+        &__item{
+            display: block;
+            &.slick-slide{
+                display: block;
+            }
+        }
+        &__sec-1{
+            margin-bottom: 10px;
+        }
+        &__tile{
+            &--vertical{
+                flex-direction: row;
+            }
+        }
+        &__img-sec{
+            width: 40%;
+        }
+        &__content{
+            width: 60%;
+        }
+    }
+}
+
+@include mobile{
+    .bnx-news{
+        padding: 32px 0;
+        &__sec-1{
+            margin-bottom: 10px;
+        }
+        &__tile{
+            flex-direction: column-reverse;
+            &--vertical{
+                flex-direction: column-reverse;
+            }
+        }
+        &__img-sec{
+            max-height: 200px;
+            overflow: hidden;
+        }
+        &__img-sec,
+        &__content
+        {
+            width: 100%;
+        }
+        &__content{
+            padding: 16px;
+        }
+        &__controls{
+            flex-wrap: wrap;
+            .al-btn{
+                margin-top: 16px;
+                margin-left: auto;
+            }
+        }
+        &__slide-detail{
+            margin-right: 0;
+        }
+    }
+}
